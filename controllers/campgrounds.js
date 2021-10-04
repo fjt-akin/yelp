@@ -18,7 +18,7 @@ module.exports.index = async (req, res) => {
 		const regex = new RegExp(escapeRegex(req.query.search), 'gi');
 		const campgrounds = await Campground.find({title: regex}).sort({_id: -1}).skip((perPage * pageNum) - perPage).limit(perPage);
 		const count = await Campground.countDocuments({title: regex});
-		if(campgrounds.length < 1) { noMatch = `Helloo ${req.user.username = 'friend'} Sorry, campground does not exist, Please create `}
+		if(campgrounds.length < 1) { noMatch = 'Sorry, campground does not exist, Please create a new campground '}
 	    res.render('campgrounds/index', { campgrounds, noMatch, current: pageNum, search: req.query.search, pages: Math.ceil(count/ perPage)  })
 		} catch (e) {
 			req.flash('error', e.message)
