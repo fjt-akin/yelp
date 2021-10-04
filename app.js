@@ -30,7 +30,8 @@ const reviewRoutes = require('./routes/reviews');
 const userRoutes = require('./routes/users')
 
 //mongoose connection
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelly';
+const dbUrl = process.env.DB_URL || 'mongodb:localhost:27017/yelly';
+
 
 mongoose.connect(dbUrl, { 
 	useNewUrlParser: true, 
@@ -52,7 +53,7 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize());
 
-const secret = process.env.SECRET || 'thisshouldbeabettersecret';
+const secret = process.env.SECRET || 'thisbetterbeasecret';
 
 // memory store
 const store = MongoStore.create({

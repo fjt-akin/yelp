@@ -18,7 +18,7 @@ module.exports.index = async (req, res) => {
 		const regex = new RegExp(escapeRegex(req.query.search), 'gi');
 		const campgrounds = await Campground.find({title: regex}).sort({_id: -1}).skip((perPage * pageNum) - perPage).limit(perPage);
 		const count = await Campground.countDocuments({title: regex});
-		if(campgrounds.length < 1) { noMatch = 'Helloo!! Sorry, campground does not exist, pls try again'}
+		if(campgrounds.length < 1) { noMatch = `Helloo ${req.user.username = 'friend'} Sorry, campground does not exist, Please create `}
 	    res.render('campgrounds/index', { campgrounds, noMatch, current: pageNum, search: req.query.search, pages: Math.ceil(count/ perPage)  })
 		} catch (e) {
 			req.flash('error', e.message)
@@ -28,7 +28,7 @@ module.exports.index = async (req, res) => {
 		try{
 		const campgrounds = await Campground.find({}).sort({_id: -1}).skip((perPage * pageNum) - perPage).limit(perPage);
 		const count = await Campground.countDocuments({});
-		if(campgrounds.length < 1) { noMatch = 'Helloo!! Sorry, campground does not exist, pls try again'}
+		if(campgrounds.length < 1) { noMatch = 'Hello friend, create a new Yelp'}
 	    res.render('campgrounds/index', { campgrounds, noMatch, current: pageNum, search: false, pages: Math.ceil(count/ perPage)  })
 		} catch (e) {
 			req.flash('error', e.message)
@@ -53,7 +53,6 @@ module.exports.createCampground = async(req, res) => {
 		campground.images =  req.files.map( file => ({url: file.path, filename: file.filename}))
 		campground.author = req.user._id;
 		const campgrounds = await Campground.create(campground);
-	    console.log(campgrounds)
 		req.flash('success', 'Successfully made a new campground!');
 		res.redirect(`/campgrounds/${campgrounds._id}`)
 }

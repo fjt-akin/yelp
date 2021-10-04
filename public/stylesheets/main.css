@@ -31,4 +31,8 @@
 	border-radius: 25px 25px 0 0;
 }
 
-
+.fa-smile-beam{
+	color: #ffb703;
+	transform: scale(1.8);
+	margin-left: 10px;
+}
