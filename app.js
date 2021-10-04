@@ -30,7 +30,7 @@ const reviewRoutes = require('./routes/reviews');
 const userRoutes = require('./routes/users')
 
 //mongoose connection
-const dbUrl = process.env.DB_URL || 'mongodb:localhost:27017/yelly';
+const dbUrl =  process.env.DB_URL || 'mongodb://localhost:27017/yelly';
 
 
 mongoose.connect(dbUrl, { 
