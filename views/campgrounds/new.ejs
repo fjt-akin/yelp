@@ -1,0 +1,61 @@
+<% layout('layouts/boilerplate') %>
+<section class="container" style="max-width: 500px">
+    <div class="row"> 
+		<div class="card shadow mt-4">
+        <h1 class="text-center pt-3">New Campground</h1>
+        <div class="mx-2">
+            <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title:</label>
+                    <input class="form-control" type="text" id="title" name=campground[title] placeholder="campground"required>
+					<div class="valid-feedback">
+						Looks good!
+					</div>
+					</div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location:</label>
+                    <input class="form-control" type="text" id="location" name=campground[location]
+                        placeholder="location" required>
+					<div class="valid-feedback">
+						Looks good!
+					</div>
+                </div>
+				
+				<div class="mb-3">
+				  <label for="image" class="form-label">Images:</label>
+				  <input class="form-control" type="file" name="image" id="image" multiple required>
+				</div>
+                 
+                <div class="mb-3">
+                    <label class="form-label" for="price"> Campground Price:</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price-label">$</span>
+                        <input type="text" name="campground[price]" class="form-control" id='price' placeholder="0.00"
+                            aria-label="price" aria-describedby="price-label" required>
+						<div class="valid-feedback">
+						Nice Price
+					</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description:</label>
+                    <textarea class="form-control" type="text" id="title" name=campground[description]
+                        placeholder="description" required></textarea>
+					<div class="valid-feedback">
+						Lovely!
+					</div>
+                </div>
+
+
+                <div class="mb-3 text-center">
+                    <button type="submit" class="btn btn-dark btn-lg">Add Campground</button>
+                </div>
+            </form>
+
+            <div class="text-center pb-3"><a class="text-decoration-none" href="/campgrounds">Home page</a></div>
+           </div>
+			</div>
+        </div>
+</section>

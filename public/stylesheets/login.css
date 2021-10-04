@@ -1,0 +1,14 @@
+.neat {
+	max-width:500px;
+	margin: 90px auto 0 ;
+}
+
+body {
+	background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://source.unsplash.com/3fJOXw1RbPo/1920x1080');
+	/* background-position:center; */
+	background-size:cover;
+}
+
+.cover {
+	  max-width: 600px
+}
